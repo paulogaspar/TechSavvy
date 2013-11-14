@@ -48,31 +48,30 @@ def server_static(filename):
     return static_file(filename, root='./')
 
 
-# Testing with a bogus index page. In the future this 
-# should only return the html file to the client.
+# Main access point. Returns main.html
 @route('/')
 def index():
 
 	return template('main.html')
 
 	# Get group feed
-	ts_group_feed = get_feed_dict()
+	#ts_group_feed = get_feed_dict()
 	
 	# Create output
-	output = ""
-	for post in ts_group_feed["data"]:
-		author_name = unicode(post["from"]["name"])
-		author_message = unicode(post["message"]) if "message" in post else ""
-		
-		post_picture = unicode(post["picture"]) if "picture" in post else ""
-		post_name = unicode(post["name"]) if "name" in post else ""
-		post_description = unicode(post["description"]) if "description" in post else ""
+	#output = ""
+	#for post in ts_group_feed["data"]:
+	#	author_name = unicode(post["from"]["name"])
+	#	author_message = unicode(post["message"]) if "message" in post else ""
+	#	
+	#	post_picture = unicode(post["picture"]) if "picture" in post else ""
+	#	post_name = unicode(post["name"]) if "name" in post else ""
+	#	post_description = unicode(post["description"]) if "description" in post else ""
 
-		post_block = "<b>"+author_name+"</b><img src='"+post_picture+"'/><i>"+post_name+"</i><h3>"+author_message+"</h3>"
+	#	post_block = "<b>"+author_name+"</b><img src='"+post_picture+"'/><i>"+post_name+"</i><h3>"+author_message+"</h3>"
 
-		output = output + post_block + "<br/>"
+	#	output = output + post_block + "<br/>"
 
-	return output
+	#return output
 
 
 # Run bottle server
