@@ -7,6 +7,12 @@
 	<script src="static/control.js"></script>
 </head>
 <body ng-app="tsApp" ng-controller="tsController">
+	<div ng-repeat="post in allContent">
+		<a href="[[post.link]]"><img src=[[post.picture]] /></a>
+		[[post.name]]<br/>
+		[[post.message]]<br/>
+		By [[post.from.name]]<br/><br/>
+	</div>
 	[[allContent]]
 </body>
 </html>
