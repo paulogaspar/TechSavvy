@@ -2,17 +2,29 @@
 <html> 
 <head>
 	<title>TechSavvy</title>
-
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 	<script src="static/control.js"></script>
 </head>
 <body ng-app="tsApp" ng-controller="tsController">
-	<div ng-repeat="post in allContent">
-		<a href="[[post.link]]"><img src=[[post.picture]] /></a>
-		[[post.name]]<br/>
-		[[post.message]]<br/>
-		By [[post.from.name]]<br/><br/>
+	
+	<div class="container">
+		<div ng-repeat="post in allContent"  class="panel panel-default">
+			<div class="panel-heading">[[post.name]]</div>
+			<div class="panel-body">
+				<a href="[[post.link]]"><img src=[[post.picture]] class="img-thumbnail"/></a>
+				<blockquote>
+					[[post.message]]<br/>
+					<small>By <cite title="">[[post.from.name]]</cite></small>
+				</blockquote><br/>
+				 <br/><br/>
+			 </div>
+		</div>
 	</div>
+
 	[[allContent]]
+	
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+
 </body>
 </html>
