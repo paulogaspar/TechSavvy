@@ -1,4 +1,4 @@
-from bottle import route, run, template
+from bottle import route, run, template, static_file
 import facebook
 import json
 
@@ -42,10 +42,18 @@ def content_rss():
 	return ""
 
 
+# Serve static files
+@route('/static/<filename>')
+def server_static(filename):
+    return static_file(filename, root='./')
+
+
 # Testing with a bogus index page. In the future this 
 # should only return the html file to the client.
 @route('/')
 def index():
+
+	return template('main.html')
 
 	# Get group feed
 	ts_group_feed = get_feed_dict()
