@@ -54,25 +54,6 @@ def index():
 
 	return template('main.html')
 
-	# Get group feed
-	#ts_group_feed = get_feed_dict()
-	
-	# Create output
-	#output = ""
-	#for post in ts_group_feed["data"]:
-	#	author_name = unicode(post["from"]["name"])
-	#	author_message = unicode(post["message"]) if "message" in post else ""
-	#	
-	#	post_picture = unicode(post["picture"]) if "picture" in post else ""
-	#	post_name = unicode(post["name"]) if "name" in post else ""
-	#	post_description = unicode(post["description"]) if "description" in post else ""
-
-	#	post_block = "<b>"+author_name+"</b><img src='"+post_picture+"'/><i>"+post_name+"</i><h3>"+author_message+"</h3>"
-
-	#	output = output + post_block + "<br/>"
-
-	#return output
-
 
 # Run bottle server
 if __name__ == '__main__':
