@@ -1,22 +1,32 @@
 from bottle import route, run, template
 import facebook
 import json
+import pprint
 
+# Obtain access token
 access_token = ""
 with open("access_token.txt") as f:
 	access_token = f.readlines()[0]
 
-ts_group_id = "289057704456073" # TechSavvy group ID
+# TechSavvy group ID
+ts_group_id = "289057704456073" 
 
 
+# Get techsavvy feed content in json
+@route('/getcontent')
+def content():
+
+	# Get group feed
+	graph = facebook.GraphAPI(access_token)
+	ts_group_feed = graph.get_connections(ts_group_id, "feed")
+
+	return json.dumps(ts_group_feed["data"])	
+
+
+# Testing with a bogus index page. In the future this 
+# should only return the html file to the client.
 @route('/')
 def index():
-
-	# Get access token
-	#if len(access_token) == 0:
-	#	with open("access_token.txt") as f:
-	#		access_token = f.readLine()
-	print access_token
 
 	# Get group feed
 	graph = facebook.GraphAPI(access_token)
@@ -37,5 +47,6 @@ def index():
 		output = output + post_block + "<br/>"
 
 	return output
+
 
 run(host='localhost', port=8080)
