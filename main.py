@@ -1,7 +1,7 @@
 from bottle import route, run, template
 import facebook
 import json
-import pprint
+
 
 # Obtain access token
 access_token = ""
@@ -12,15 +12,34 @@ with open("access_token.txt") as f:
 ts_group_id = "289057704456073" 
 
 
-# Get techsavvy feed content in json
-@route('/getcontent')
-def content():
+# Get feed as python dictionary
+def get_feed_dict():
 
 	# Get group feed
 	graph = facebook.GraphAPI(access_token)
 	ts_group_feed = graph.get_connections(ts_group_id, "feed")
 
+	return ts_group_feed
+
+
+# Get techsavvy feed content in json
+@route('/getcontent/json')
+def content_json():
+
+	# Get group feed
+	ts_group_feed = get_feed_dict()
+
 	return json.dumps(ts_group_feed["data"])	
+
+
+# Get techsavvy feed content in json
+@route('/getcontent/rss')
+def content_rss():
+
+	# Get group feed
+	ts_group_feed = get_feed_dict()
+
+	return ""
 
 
 # Testing with a bogus index page. In the future this 
@@ -29,8 +48,7 @@ def content():
 def index():
 
 	# Get group feed
-	graph = facebook.GraphAPI(access_token)
-	ts_group_feed = graph.get_connections(ts_group_id, "feed")
+	ts_group_feed = get_feed_dict()
 	
 	# Create output
 	output = ""
@@ -49,4 +67,6 @@ def index():
 	return output
 
 
-run(host='localhost', port=8080)
+# Run bottle server
+if __name__ == '__main__':
+	run(host='localhost', port=8080)
