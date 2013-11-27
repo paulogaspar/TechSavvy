@@ -8,8 +8,11 @@ import os
 
 # Obtain access token
 access_token = ""
-with open("access_token.txt") as f:
-	access_token = f.readlines()[0]
+try:
+	with open("access_token.txt") as f:
+		access_token = f.readlines()[0]
+except:
+	access_token = os.environ.get("FB_KEY")
 
 # TechSavvy group ID
 ts_group_id = "289057704456073" 
