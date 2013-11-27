@@ -3,6 +3,7 @@ import facebook
 import json
 from datetime import datetime
 import PyRSS2Gen
+import os
 
 
 # Obtain access token
@@ -75,4 +76,4 @@ def index():
 
 # Run bottle server
 if __name__ == '__main__':
-	run(host='localhost', port=8080)
+	run(host='localhost', port=os.environ.get("PORT",8080))
