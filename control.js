@@ -11,7 +11,7 @@ tsApp.controller('tsController', function($scope, $http, $window)
 	$scope.go = function(){
 		$window.open( "https://www.facebook.com/groups/tech.savvyness/permalink/"+ this.post.id.split('_')[1]+"/" );
 	}
-	$http.get('http://localhost:8080/getcontent/json')
+	$http.get('/getcontent/json')
 		 .success(function(response) {
         		$scope.allContent = response;
     });
