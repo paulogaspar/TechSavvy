@@ -79,4 +79,4 @@ def index():
 
 # Run bottle server
 if __name__ == '__main__':
-	run(host='localhost', port=os.environ.get("PORT",8080))
+	run(host='0.0.0.0', port=os.environ.get("PORT",8080))
