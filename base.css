@@ -1,0 +1,14 @@
+.panel-heading{
+	min-height: 41px;
+}
+.panel{
+	padding: 0px;
+	height: 390px;
+}
+.panel:hover{
+	background-color: rgba(245,245,245, 0.8);
+	cursor: pointer;
+}
+blockquote{
+	word-break: break-all;
+}
