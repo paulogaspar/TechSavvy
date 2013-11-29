@@ -1,14 +1,31 @@
 .panel-heading{
-	min-height: 41px;
+	height: 51px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
 }
 .panel{
 	padding: 0px;
 	height: 390px;
 }
+.panel-body{
+	height: 100%;
+	padding-bottom: 65px;
+}
 .panel:hover{
 	background-color: rgba(245,245,245, 0.8);
-	cursor: pointer;
 }
 blockquote{
 	word-break: break-all;
+}
+img{
+	height: 99px;
+	width: 100%;
+	max-width: 170px;
+}
+.top-right{
+	position: absolute;
+	bottom: 61px;
+	right: 7px;
+	cursor: pointer;
 }
