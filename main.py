@@ -1,6 +1,8 @@
 from bottle import route, run, template, static_file
 import facebook
 import json
+from datetime import datetime
+import PyRSS2Gen
 
 
 # Obtain access token
@@ -38,9 +40,25 @@ def content_rss():
 
 	# Get group feed
 	ts_group_feed = get_feed_dict()
+	item_list = []
+	for post in ts_group_feed["data"]:
+		url = "https://www.facebook.com/groups/tech.savvyness/permalink/%s/" % (post.get("id").split('_')[1])
+		rssitem = PyRSS2Gen.RSSItem(
+		title = post.get("name", "Title"),
+		link = url,
+		description = post.get("message", "").encode("utf-8"),
+		guid = PyRSS2Gen.Guid(url),
+		pubDate = datetime.strptime(post.get('updated_time')[:-5],'%Y-%m-%dT%H:%M:%S'))
+		item_list.append(rssitem)
+    
+	rss = PyRSS2Gen.RSS2(
+    title = "TechSavvy's RSS feed",
+    link = "https://www.facebook.com/groups/tech.savvyness/",
+    description = "The latest news on TechSavvy",
+    lastBuildDate = datetime.now(),
+    items = item_list)
 
-	return ""
-
+	return rss.to_xml(encoding='utf-8')
 
 # Serve static files
 @route('/static/<filename>')
