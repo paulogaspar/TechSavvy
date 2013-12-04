@@ -113,6 +113,29 @@ def fetch_image():
 			return ''
 
 
+# Fetch description from metadata. Returns the description.
+@route('/api/fetchDescription')
+def fetch_description():
+	url = request.query.url
+	if url is None or url == '':
+		return ''
+	html = None
+	try:
+		response = urllib2.urlopen(url)
+		html = response.read()
+		p = re.compile('<meta[^>]+og:description[^>]+>', re.IGNORECASE)
+		meta = p.search(html).group()
+		if meta is None:
+			return ''
+		p = re.compile('content="[^"]+"', re.IGNORECASE)
+		description = p.search(meta).group()
+		if description is None:
+			return ''
+		else:
+			return description[9:-1]
+	except:
+		return ''
+
 # Main access point. Returns main.html
 @route('/')
 def index():
