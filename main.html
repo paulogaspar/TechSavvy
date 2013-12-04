@@ -10,12 +10,15 @@
 	
 	<div class="container">
 		<div class="row">
-			<div ng-repeat="post in allContent" ng-click="go()"  class="panel panel-default col-md-3">
+			<div ng-repeat="post in allContent"  class="panel panel-default col-md-3">
 				<div class="panel-heading">[[post.name]]</div>
-				<div class="panel-body">
+				<div class="panel-body" style="position:relative">
 					<a href="[[post.link]]">
 						<img src=[[post.picture]] class="img-rounded" ng-if="post.picture"/>
-						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAFeElEQVR4Xu2Yx0udXRCHJ1iIvS5ERRdiwWxsCxv6x9srouLCEgsoKnItKJrYwhxQkk9RB+dLvM5zwUV8hzl3nt+T857jl0wmcy98IPBGAl8Q5o2kKEsEEAYRTAQQxoSLYoTBARMBhDHhohhhcMBEAGFMuChGGBwwEUAYEy6KEQYHTAQQxoSLYoTBARMBhDHhohhhcMBEAGFMuChGGBwwEUAYEy6KEQYHTAQQxoSLYoTBARMBhDHhohhhcMBEAGFMuChGGBwwEUAYEy6KEQYHTAQQxoSLYoTBARMBhDHhohhhcMBEAGFMuChGGBwwEUAYEy6KEQYHTAQQxoSLYoTBARMBhDHhohhhcMBEAGFMuChGGBwwEUAYEy6KEQYHTAQQxoSLYoTBARMBhDHhohhhcMBEAGFMuChGGBwwEUAYEy6KEQYHTAQQxoSLYoTBARMBhDHhohhhcMBEAGFMuChGGBwwEUAYEy6KEQYHTAQQxoSLYoTBARMBhDHhohhhcMBEAGFMuChGGBwwEchqYa6urmRlZUUymYy0tbVJfX39k+GXlpbk4OBAmpubpbGxMT0/PDyU9fV1+fnzp5SVlcm3b98kPz//VXB/e71Xv9A/KMhaYTS8qampFPTFxcWzwpycnMj8/Lzc3d09CnN9fS2jo6NSVFQk1dXVsrW1JTU1NdLe3v4i/r+93j9w4U1LZq0wKsnx8bEUFxfL7OzsE2Hu7+9lenpaSkpKZG9v71GY/f19WV5elq6uLqmsrJTFxcXUZ3h4WL5//55+uru7paKiIj3T3au3t1dub2/d13tTQh+sKGuFeeCou8hzwuzu7srm5mYSY3x8/FEY/d3GxoYMDAxIQUGBrK6uys7OThImJycnSaaflpaWtDv991XnuV5eXt4H0+H1r/Mphbm5uZGxsTFpbW1NO8XIyMijMHp20dfQ4OCgfP36NZ1lfv/36empzMzMSG5ubtq9enp6/qD4nDDvWe/1iD5WxacURncNDVZ3lx8/fsjExIQ0NTVJQ0ND2k10h+nv75fCwsI/dpiH//G6y5ydnaVzTW1t7avCvHe9j6XEy9/mUwozOTkp5+fnTyZXYfRWpDenjo6OdOhdWFhIcgwNDaV6vVHpcz0U67lFzy+627z0CnzPetkki37XrBVGr8R6WL28vEyvlbq6unSILS8vT7uKhq0fvRXp4VWf67Vab1X6inq4JemZRp/pWUVfLboblZaWpleYiqDP9NX2f6yXbbJktTAqy9zc3BPmnZ2dUlVV9fh7lef3M4w+ODo6krW1NdGrskqmf4fRXUT/pqO3qL6+vnQg1prt7e10jtFbl/d6CJONBPjOJgJZ+0oyTUmxGwGEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbUqEcUMZoxHCxMjZbcpfR1gotUh4JykAAAAASUVORK5CYII=" class="img-rounded" ng-if="!post.picture"/>
+						<img src="http://graph.facebook.com/[[post.from.id]]/picture?type=large" ng-if="!post.picture">
+					</a>
+					<a href="#" onclick="return false;">
+					<i class="fa fa-facebook-square fa-2x top-right" ng-click="go()"></i>
 					</a>
 					<blockquote>
 						[[post.message.substr(0,140)]]<span ng-if="post.message.length > 140">...</span><br/>
@@ -31,6 +34,7 @@
 	
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="static/base.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 </body>
 </html>
