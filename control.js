@@ -20,7 +20,6 @@ tsApp.controller('tsController', function($scope, $http, $window)
 			return;	
 		}
 		$scope.allContent = $scope.contentCache.filter(function(item){
-			console.log(item.message!=undefined && item.message.toLowerCase().indexOf(query.toLowerCase()) < 0);
 			return item.message!=undefined && item.message.toLowerCase().indexOf(query.toLowerCase()) > 0;
 		});
 		console.log($scope.allContent.length);
