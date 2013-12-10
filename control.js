@@ -22,7 +22,6 @@ tsApp.controller('tsController', function($scope, $http, $window)
 		$scope.allContent = $scope.contentCache.filter(function(item){
 			return item.message!=undefined && item.message.toLowerCase().indexOf(query.toLowerCase()) > 0;
 		});
-		console.log($scope.allContent.length);
 	}, true);
 
 	$http.get('/getcontent/json')
