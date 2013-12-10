@@ -2,14 +2,20 @@
 <html> 
 <head>
 	<title>TechSavvy</title>
-	
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 	<script src="static/control.js"></script>
+	<script src="static/jquery.FloatLabel.js"></script>
+	
 </head>
 <body ng-app="tsApp" ng-controller="tsController">
 	
 	<div class="container">
 		<div class="row">
+			<div class="js-float-label-wrapper" js-float-lable>
+	            <label for="s">Search</label>
+	            <input id="s" type="text" ng-model="mSearch" value="Search">
+	        </div>
 			<div ng-repeat="post in allContent"  class="panel panel-default col-md-3">
 				<div class="panel-heading">[[post.name]]</div>
 				<div class="panel-body" style="position:relative">
@@ -34,6 +40,7 @@
 	
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="static/base.css">
+	<link rel="stylesheet" href="static/jquery.FloatLabel.css">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 </body>
