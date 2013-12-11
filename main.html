@@ -19,7 +19,7 @@
 			<div ng-repeat="post in allContent | filter:searchVal" class="panel panel-default col-md-3">
 				<div class="panel-heading">[[post.name]]</div>
 				<div class="panel-body" style="position:relative">
-					<a href="[[post.link]]">
+					<a href="[[post.link]]" target="_blank">
 						<img src=[[post.picture]] class="img-rounded" ng-if="post.picture"/>
 						<img src="http://graph.facebook.com/[[post.from.id]]/picture?type=large" ng-if="!post.picture">
 					</a>
