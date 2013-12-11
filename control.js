@@ -12,17 +12,6 @@ tsApp.controller('tsController', function($scope, $http, $window)
 	$scope.go = function(){
 		$window.open( "https://www.facebook.com/groups/tech.savvyness/permalink/"+ this.post.id.split('_')[1]+"/" );
 	}
-	$scope.$watch('mSearch', function(query) {
-		if($scope.contentCache==undefined)
-			return;
-		if(query==undefined || query==""){
-			$scope.allContent = $scope.contentCache;
-			return;	
-		}
-		$scope.allContent = $scope.contentCache.filter(function(item){
-			return item.message!=undefined && item.message.toLowerCase().indexOf(query.toLowerCase()) > 0;
-		});
-	}, true);
 
 	$http.get('/getcontent/json')
 		 .success(function(response) {
