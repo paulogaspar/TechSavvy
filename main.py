@@ -67,7 +67,7 @@ def content_rss():
 	return rss.to_xml(encoding='utf-8')
 
 # Serve static files
-@route('/static/<filename>')
+@route('/static/<filename:path>')
 def server_static(filename):
     return static_file(filename, root='./')
 
@@ -145,4 +145,4 @@ def index():
 
 # Run bottle server
 if __name__ == '__main__':
-	run(host='0.0.0.0', port=os.environ.get("PORT",8080))
+	run(host='0.0.0.0', port=os.environ.get("PORT",8080), reloader=True)
