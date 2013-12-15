@@ -23,7 +23,6 @@ tsApp.controller('tsController', function($scope, $http, $window)
 	        			if(_tmpitem.picture==undefined){
 	        				$http.get('/api/fetchImage?url='+_tmpitem.link).success(function(response){
 	        					if(response!=''){
-	        						console.log('item:',_tmpitem.name,' <-> og:image:',response);	
 	        						_tmpitem.picture = response;
 	        					}
 							});
@@ -32,7 +31,6 @@ tsApp.controller('tsController', function($scope, $http, $window)
 	        			if(_tmpitem.message==undefined){
 	        				$http.get('/api/fetchDescription?url='+_tmpitem.link).success(function(response){
 	        					if(response!=''){
-	        						console.log('item:',_tmpitem.name,' <-> og:description:',response);	
 	        						_tmpitem.message = response;
 	        					}
 							});

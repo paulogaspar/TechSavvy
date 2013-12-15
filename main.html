@@ -20,7 +20,7 @@
 				<div class="panel-heading">[[post.name]]</div>
 				<div class="panel-body" style="position:relative">
 					<a href="[[post.link]]" target="_blank">
-						<img src=[[post.picture]] class="img-rounded" ng-if="post.picture"/>
+						<img src="[[post.picture]]" class="img-rounded" ng-if="post.picture"/>
 						<img src="http://graph.facebook.com/[[post.from.id]]/picture?type=large" ng-if="!post.picture">
 					</a>
 					<a href="#" onclick="return false;">
@@ -29,14 +29,12 @@
 					<blockquote>
 						[[post.message.substr(0,140)]]<span ng-if="post.message.length > 140">...</span><br/>
 						<small>By <cite title="">[[post.from.name]]</cite></small>
-					</blockquote><br/>
-					 <br/><br/>
+					</blockquote>
+					<br/><br/><br/>
 				 </div>
 			</div>
 		</div>
 	</div>
-
-	<!--[[allContent]]-->
 	
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="static/base.css">

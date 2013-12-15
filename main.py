@@ -16,6 +16,7 @@ try:
 except:
 	access_token = os.environ.get("FB_KEY")
 
+
 # TechSavvy group ID
 ts_group_id = "289057704456073" 
 
@@ -58,18 +59,20 @@ def content_rss():
 		item_list.append(rssitem)
     
 	rss = PyRSS2Gen.RSS2(
-    title = "TechSavvy's RSS feed",
+    title = "TechSavvy RSS feed",
     link = "https://www.facebook.com/groups/tech.savvyness/",
-    description = "The latest news on TechSavvy",
+    description = "The latest news by Tech Savvies",
     lastBuildDate = datetime.now(),
     items = item_list)
 
 	return rss.to_xml(encoding='utf-8')
 
+
 # Serve static files
 @route('/static/<filename:path>')
 def server_static(filename):
     return static_file(filename, root='./')
+
 
 # Fetch one image from url. Returns the image url.
 @route('/api/fetchImage')
@@ -136,6 +139,7 @@ def fetch_description():
 	except:
 		return ''
 
+
 # Main access point. Returns main.html
 @route('/')
 def index():
@@ -145,4 +149,4 @@ def index():
 
 # Run bottle server
 if __name__ == '__main__':
-	run(host='0.0.0.0', port=os.environ.get("PORT",8080), reloader=True)
+	run(host='0.0.0.0', port=os.environ.get("PORT", 8080), reloader=True)
