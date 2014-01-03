@@ -16,12 +16,12 @@
 	            <label for="s">Search</label>
 	            <input id="s" type="text" ng-model="searchVal" value="Search">
 	        </div>
-			<div ng-repeat="post in allContent | filter:searchVal" class="panel panel-default col-md-3">
+			<div ng-repeat="post in allContent track by $index | filter:searchVal" class="panel panel-default col-md-3">
 				<div class="panel-heading">[[post.name]]</div>
 				<div class="panel-body" style="position:relative">
 					<a href="[[post.link]]" target="_blank">
-						<img src="[[post.picture]]" class="img-rounded" ng-if="post.picture"/>
-						<img src="http://graph.facebook.com/[[post.from.id]]/picture?type=large" ng-if="!post.picture">
+						<img ng-src="[[post.picture]]" class="img-rounded" ng-if="post.picture"/>
+						<img ng-src="http://graph.facebook.com/[[post.from.id]]/picture?type=large" ng-if="!post.picture">
 					</a>
 					<a href="#" onclick="return false;">
 					<i class="fa fa-facebook-square fa-2x top-right" ng-click="go()"></i>
