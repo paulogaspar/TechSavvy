@@ -5,7 +5,7 @@ tsApp.config(function($interpolateProvider){
     $interpolateProvider.endSymbol(']]');
 });
 
-tsApp.controller('tsController', function($scope, $http, $window)
+tsApp.controller('tsController', function($scope, $http, $window, $timeout)
 {
 	$scope.contentCache = undefined;
 	$scope.allContent = "Loading content..."
@@ -17,10 +17,9 @@ tsApp.controller('tsController', function($scope, $http, $window)
 		 .success(function(response) {
 		 		$scope.contentCache = response;
         		$scope.allContent = response;
-        		for(var i = 0; i < response.length; i++){
-        			$scope.$apply(function(){
-        				var _tmpitem = response[i];
-	        			if(_tmpitem.picture==undefined){
+        		angular.forEach(response, function (_tmpitem, idx) {
+        			$timeout(function(){
+        				if(_tmpitem.picture==undefined){
 	        				$http.get('/api/fetchImage?url='+_tmpitem.link).success(function(response){
 	        					if(response!=''){
 	        						_tmpitem.picture = response;
@@ -37,7 +36,7 @@ tsApp.controller('tsController', function($scope, $http, $window)
 	        			}
 
         			})
-        		}
+        		});
     });
 })
 .directive('jsFloatLable', function() {
