@@ -53,7 +53,7 @@ def content_rss():
 		rssitem = PyRSS2Gen.RSSItem(
 		title = post.get("name", "Title"),
 		link = url,
-		description = post.get("message", "").encode("utf-8"),
+		description = post.get("message", ""),
 		guid = PyRSS2Gen.Guid(url),
 		pubDate = datetime.strptime(post.get('updated_time')[:-5],'%Y-%m-%dT%H:%M:%S'))
 		item_list.append(rssitem)
@@ -65,7 +65,7 @@ def content_rss():
     lastBuildDate = datetime.now(),
     items = item_list)
 
-	return rss.to_xml(encoding='utf-8')
+	return rss.to_xml()
 
 
 # Serve static files
