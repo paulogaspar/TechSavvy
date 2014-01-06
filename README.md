@@ -1,6 +1,8 @@
 # TechSavvy web page #
 
-Page generated with content from tech savvy.
+Official webapp ([live version](http://www.techsavvy.ws/)) for the [Tech Savvy Facebook group](https://www.facebook.com/groups/tech.savvyness). 
+
+The live page is generated with content from tech savvy. 
 
 To start:
 
