@@ -32,7 +32,7 @@ def get_feed_dict():
 
 
 # Get techsavvy feed content in json
-@route('/getcontent/json')
+@route('/content/json')
 def content_json():
 
 	# Get group feed
@@ -42,7 +42,7 @@ def content_json():
 
 
 # Get techsavvy feed content in json
-@route('/getcontent/rss')
+@route('/content/rss')
 def content_rss():
 
 	# Get group feed

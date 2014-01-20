@@ -2,44 +2,79 @@
 <html> 
 <head>
 	<title>TechSavvy</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	<script src="http://momentjs.com/downloads/moment.min.js"></script>
+
 	<script src="static/control.js"></script>
 	<script src="static/jquery.FloatLabel.js"></script>
-	
+
+
+	<!-- base layout styling -->
+
+	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="static/css/prettyPhoto.css">
+	<link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Lato:300,400,700,400italic,700italic|Droid+Serif" rel="stylesheet" type="text/css">
+
+	<link rel="stylesheet" href="static/css/base.css">
+	<link rel="stylesheet" href="static/css/components.css">
+	<link rel="stylesheet" href="static/css/default.css">
 </head>
+
 <body ng-app="tsApp" ng-controller="tsController">
 	
 	<div class="container">
-		<div class="row">
-			<div class="js-float-label-wrapper" js-float-lable>
-	            <label for="s">Search</label>
-	            <input id="s" type="text" ng-model="searchVal" value="Search">
-	        </div>
-			<div ng-repeat="post in allContent | filter:searchVal track by $index" class="panel panel-default col-md-3">
-				<div class="panel-heading">[[post.name]]</div>
-				<div class="panel-body" style="position:relative">
-					<a href="[[post.link]]" target="_blank">
-						<img ng-src="[[post.picture]]" class="img-rounded" ng-if="post.picture"/>
-						<img ng-src="http://graph.facebook.com/[[post.from.id]]/picture?type=large" ng-if="!post.picture">
-					</a>
-					<a href="#" onclick="return false;">
-					<i class="fa fa-facebook-square fa-2x top-right" ng-click="go()"></i>
-					</a>
-					<blockquote>
-						[[post.message.substr(0,140)]]<span ng-if="post.message.length > 140">...</span><br/>
-						<small>By <cite title="">[[post.from.name]]</cite></small>
-					</blockquote>
-					<br/><br/><br/>
-				 </div>
-			</div>
+		<div class="section row entries bg-primary section-no-margin-bottom">
+		
+			<!--    class="js-float-label-wrapper"     -->
+				<div class="" js-float-lable>
+		            <label for="s">Search</label>
+		            <input id="s" type="text" ng-model="searchVal" value="Search">
+		        </div>
+
+		        <div ng-repeat="post in allContent | filter:searchVal track by $index">
+
+			        <!-- article ng-if="index < 2" class="entry style-grid style-hero type-post col-sm-6 col-md-4 col-lg-4 col-xl-6 colheight-sm-1 colheight-md-1 colheight-lg-1 colheight-xl-2" -->
+
+			        <article class="entry style-grid style-hero hero-sm-larger hero-xl-normal type-post col-sm-6 col-md-4 col-lg-4 col-xl-4 colheight-sm-1 colheight-md-2 colheight-lg-2 colheight-xl-1 sm-pull-right">
+
+			        <!--article class="entry style-grid style-hero hero-sm-largest type-post col-sm-12 col-md-8 col-lg-8 col-xl-6 colheight-sm-1 colheight-md-2 colheight-lg-2 colheight-xl-2"-->
+
+			        	<div class="ribbon ribbon-pulled ribbon-small ribbon-highlight">
+							<a href="blog.html">Category Name</a>
+						</div>
+
+
+						<header class="entry-header">
+							<h3 class="entry-title"><a href="[[post.link]]" target="_blank">[[post.name]]</a></h3>
+							<div class="entry-meta">
+								<blockquote>
+									[[post.message.substr(0,140)]]<span ng-if="post.message.length > 140">...</span><br/>
+								</blockquote>
+
+								<span class="entry-date"><time datetime="[[post.created_time]]"><script>moment("", "YYYYMMDD").fromNow();</script></time></span>
+								<span class="entry-author"> by [[post.from.name]]</span>
+							</div>
+						</header>
+
+						<figure class="entry-thumbnail">
+							<a ng-click="go()" class="overlay overlay-primary"></a>
+							<img ng-src="[[post.picture]]" style="opacity: 1;" ng-if="post.picture"/>
+							<img ng-src="http://graph.facebook.com/[[post.from.id]]/picture?type=large" style="opacity: 1;" ng-if="!post.picture">
+						</figure>
+			        </article>
+		        </div>
 		</div>
 	</div>
 	
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="static/css/techbase.css">
-	<link rel="stylesheet" href="static/css/jquery.FloatLabel.css">
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<!--link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"-->
+	<!-- link rel="stylesheet" href="static/css/techbase.css" -->
+	<!--link rel="stylesheet" href="static/css/jquery.FloatLabel.css"-->
+	<!--link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"-->
 
 </body>
 </html>
