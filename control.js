@@ -13,7 +13,7 @@ tsApp.controller('tsController', function($scope, $http, $window, $timeout)
 		$window.open( "https://www.facebook.com/groups/tech.savvyness/permalink/"+ this.post.id.split('_')[1]+"/" );
 	}
 
-	$http.get('/getcontent/json')
+	$http.get('/content/json')
 		 .success(function(response) {
 		 		$scope.contentCache = response;
         		$scope.allContent = response;

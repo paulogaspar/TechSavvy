@@ -1,0 +1,722 @@
+/**
+ * see *.less for some documentation
+ * some helpers located on libs.less
+ */
+.inline-block {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+/**************************************************************************
+ *
+ * 1. Base 
+ * 2. Header
+ * 3. Header Navbar
+ *
+ * 4. Components
+ * 		4.1. Base
+ * 		4.2. Entry Styles
+ * 		4.3. Comments Area
+ * 		4.4. Lists
+ * 		4.5. Breadcrumb
+ * 		4.6. Pagination
+ * 		4.7. Sidenav
+ * 		4.8. Carousel
+ * 		4.9. Collapsible Panel
+ * 		4.10. Tab
+ * 		4.11. Buttons
+ * 		4.12. Progress Bar
+ * 		4.13. Overlay
+ * 		4.14. Table
+ * 		4.15. AD/banner
+ * 		4.16. Widget calendar
+ * 5. Footer
+ * 6. Responsive
+ */
+body {
+  background-color: #ebebeb;
+  color: #444444;
+}
+a {
+  color: #476481;
+}
+a:hover {
+  color: #2c3e50;
+}
+.bg-page {
+  background-color: #ebebeb;
+}
+.bg-base {
+  background-color: #ffffff;
+}
+.bg-base  > .entries > .entry:not(.style-grid) .entry-title a {
+  color: #2c3e50;
+}
+.bg-primary {
+  background-color: #2c3e50;
+}
+.bg-focus {
+  background-color: #161f29;
+}
+.bg-secodary {
+  background-color: #dedede;
+}
+.bg-bar {
+  background-color: #0d1318;
+}
+.section-no-margin-bottom,
+.section.carousel {
+  border-bottom: 4px solid #0d1318;
+}
+.form-control {
+  background-color: #ebebeb;
+  border-color: rgba(69, 69, 69, 0.3);
+}
+/**************************************************************************
+ * 2. Header 
+ */
+.header-navbar .header-navbar-inner {
+  background-color: #0d1318;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+.header-navbar .header-navbar-inner:after {
+  border-left-color: #111111;
+}
+.header-navbar .header-navbar-inner .btn-icon {
+  color: #161f29;
+  background-color: #f1c40f;
+}
+.header-navbar .header-navbar-inner .btn-icon:hover,
+.header-navbar .header-navbar-inner .btn-icon:focus,
+.header-navbar .header-navbar-inner .btn-icon.focus {
+  color: #161f29;
+  background-color: #f5d657;
+}
+.scrolled .header-navbar .navbar-brand {
+  border-right-color: #11181f;
+}
+.header-navbar .navbar-brand a {
+  background-color: #161f29;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+.header-navbar .navbar-brand a:after {
+  border-right-color: #11181f;
+}
+.scrolled .header-navbar .navbar-brand a {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: #0d1318;
+}
+.search-wrapper .search-wrapper-inner {
+  border-bottom: 1px dotted #2c3e50;
+}
+.search-wrapper input[type="text"] {
+  color: #d9d9d9;
+}
+/**************************************************************************
+ * 3. Header Navbar
+ */
+.header-navbar {
+  color: #d9d9d9;
+}
+.header-navbar .subnav-header {
+  color: #d9d9d9;
+}
+.header-navbar a {
+  color: #d9d9d9;
+}
+.header-navbar a:hover,
+.header-navbar li.active > a,
+.header-navbar li.active > a:hover {
+  color: #f1c40f;
+}
+.header-navbar li a:hover,
+.header-navbar li li.active > a,
+.header-navbar li li.active > a:hover {
+  color: #f1c40f;
+  background-color: #0d1318;
+}
+.header-navbar .nav-pages a {
+  color: #9f9f9f;
+}
+.header-navbar .nav-pages a:hover {
+  color: #2c3e50;
+  background-color: transparent;
+}
+.nav.navbar-nav li .subnav-wrapper {
+  border-top-color: #f1c40f;
+  background-color: #161f29;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+.nav.navbar-nav  > li.nav-all {
+  border-left-color: #161f29;
+}
+.nav.navbar-nav  > li.nav-all  > a {
+  color: #f1c40f;
+}
+.navbar-nav li .subnav-wrapper.subnav-tabbed {
+  background-color: #0d1318;
+}
+.header-navbar li .subnav-tabbed-tabs li.active > a {
+  background-color: #161f29;
+}
+.subnav-tabbed-panels {
+  background-color: #161f29;
+}
+.subnav-entries li {
+  border-top: 1px dashed #0d1318;
+}
+.subnav-entries li:first-child {
+  border-top: none;
+}
+/**************************************************************************
+ * 4. Components
+ */
+/**************************************************************************
+ * 		4.1 Base
+ */
+.comments-count-balloon {
+  color: #444444;
+  background-color: #ffffff;
+}
+.comments-count-balloon:after {
+  border-left-color: #ffffff;
+}
+.comments-count-balloon.bg-focus {
+  background-color: #161f29;
+  color: #d9d9d9;
+}
+.comments-count-balloon.bg-focus:after {
+  border-left-color: #161f29;
+}
+.comments-count-balloon.bg-primary {
+  background-color: #2c3e50;
+  color: #cccccc;
+}
+.comments-count-balloon.bg-primary:after {
+  border-left-color: #2c3e50;
+}
+.comments-count-balloon em {
+  color: #444444;
+}
+.ribbon  > a,
+.ribbon  > span,
+.ribbon  > .ribbon-inner {
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  background-color: #2c3e50;
+  color: #cccccc;
+}
+.ribbon a:hover {
+  text-decoration: none;
+}
+.ribbon  > span,
+.ribbon  > .ribbon-inner {
+  color: #cccccc;
+}
+.ribbon  > span a,
+.ribbon  > .ribbon-inner a {
+  color: #cccccc;
+}
+.ribbon  > span a:hover,
+.ribbon  > .ribbon-inner a:hover {
+  -webkit-opacity: 0.7;
+  -moz-opacity: 0.7;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+.ribbon.ribbon-highlight  > a,
+.ribbon.ribbon-highlight  > span,
+.ribbon.ribbon-highlight  > .ribbon-inner {
+  background-color: #f1c40f;
+  color: #161f29;
+}
+.ribbon.ribbon-highlight  > a:hover {
+  background-color: #dab10d;
+}
+.ribbon.ribbon-highlight  > span,
+.ribbon.ribbon-highlight  > .ribbon-inner {
+  color: #161f29;
+}
+.ribbon.ribbon-highlight  > span a,
+.ribbon.ribbon-highlight  > .ribbon-inner a {
+  color: #161f29;
+}
+.ribbon.ribbon-focus  > a,
+.ribbon.ribbon-focus  > span,
+.ribbon.ribbon-focus  > .ribbon-inner {
+  background-color: #161f29;
+  color: #d9d9d9;
+}
+.ribbon.ribbon-focus  > a:hover {
+  background-color: #0d1318;
+}
+.ribbon.ribbon-focus  > span,
+.ribbon.ribbon-focus  > .ribbon-inner {
+  color: #d9d9d9;
+}
+.ribbon.ribbon-focus  > span a,
+.ribbon.ribbon-focus  > .ribbon-inner a {
+  color: #d9d9d9;
+}
+.ribbon:after {
+  border-right-color: #111;
+}
+/**************************************************************************
+ * 		4.2 Entry Styles
+ */
+.style-score-widget .score:after {
+  border-right-color: #1a242f;
+}
+.style-score-widget .score-bar {
+  background-color: #dedede;
+  border-bottom-color: #c4c4c4;
+}
+.style-score-widget .score-bar i {
+  background-color: #c29d0b;
+  border-bottom-color: #927608;
+}
+.style-review-score {
+  background-color: #f1c40f;
+  color: #161f29;
+}
+.style-review-list .style-review-score {
+  background-color: #f1c40f;
+  color: #161f29;
+}
+.style-single h1,
+.style-single h2,
+.style-single h3,
+.style-single h4,
+.style-single h5 {
+  color: #2c3e50;
+}
+.style-single h1,
+.style-single h2,
+.style-single h3 {
+  border-bottom-color: #d0d0d0;
+}
+.after-entry hr {
+  border-top: 1px dashed #d0d0d0;
+}
+.page-header {
+  border-bottom-color: #d0d0d0;
+}
+.page-header .page-title {
+  color: #2c3e50;
+}
+.style-hero.hero-nav .small {
+  color: #f1c40f;
+}
+.style-recent-list {
+  border-top-color: #aabdd1;
+}
+.style-thumbnail-text {
+  border-top: 1px solid #d9d9d9;
+  border-left: 1px solid #d9d9d9;
+}
+.style-thumbnail-text:first-child {
+  border-left: none;
+}
+.style-thumbnail-text a {
+  display: block;
+}
+.style-grid {
+  background-color: #2c3e50;
+}
+.style-grid .entry-header {
+  color: #ffffff;
+}
+.style-grid .entry-header .entry-meta a {
+  color: #ffffff;
+}
+.style-grid .entry-header .entry-title a {
+  color: #ffffff;
+}
+.style-grid .entry-header .entry-title a:hover {
+  color: #ffffff;
+}
+.style-grid .entry-header p.small:first-child {
+  color: #f1c40f;
+}
+.style-grid .entry-header p.small:first-child a {
+  color: #f1c40f;
+}
+/**************************************************************************
+ * 		4.3. Comments Area
+ */
+.comments-area {
+  padding-top: 20px;
+}
+.comments-area  > .comment-list {
+  border-top: 2px solid #d0d0d0;
+}
+.comments-area .comment {
+  border-left-color: #d0d0d0;
+}
+/**************************************************************************
+ * 		4.4. Lists
+ */
+.coverageList {
+  border: 5px solid #ffffff;
+  /* Fallback for web browsers that doesn't support RGBa */
+
+  background-color: #ffffff;
+  /* RGBa with 0.6 opacity */
+
+  background-color: rgba(255, 255, 255, 0.6);
+  /* For IE 5.5 - 7 */
+
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#99ffffff', endColorstr='#99ffffff');
+  /* For IE 8 */
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99ffffff, endColorstr=#99ffffff)";
+}
+.tagcloud a,
+.post-tags a {
+  color: #cccccc;
+  /* Fallback for web browsers that doesn't support RGBa */
+
+  background-color: #2c3e50;
+  /* RGBa with 0.6 opacity */
+
+  background-color: rgba(43, 61, 79, 0.6);
+  /* For IE 5.5 - 7 */
+
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#99ffffff', endColorstr='#99ffffff');
+  /* For IE 8 */
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#992b3d4f, endColorstr=#992b3d4f)";
+}
+.tagcloud a:hover,
+.post-tags a:hover {
+  /* Fallback for web browsers that doesn't support RGBa */
+
+  background-color: #2c3e50;
+  /* RGBa with 0.6 opacity */
+
+  background-color: #2b3d4f;
+  /* For IE 5.5 - 7 */
+
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#99ffffff', endColorstr='#99ffffff');
+  /* For IE 8 */
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff2b3d4f, endColorstr=#ff2b3d4f)";
+}
+/**************************************************************************
+ *		4.5. Breadcrumb
+ */
+.breadcrumb  > li.active {
+  color: inherit;
+}
+.breadcrumb  > li + li:before {
+  color: inherit;
+  -webkit-opacity: 0.6;
+  -moz-opacity: 0.6;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+/**************************************************************************
+ * 		4.6. Pagination
+ */
+.pagination  > li  > span,
+.pagination  > li  > a,
+.pagination  > li  > span:hover {
+  background-color: transparent;
+  color: #476481;
+}
+.pagination  > li.active > span,
+.pagination  > li.active > span:hover,
+.pagination  > li a:hover {
+  background-color: transparent;
+  color: #f1c40f;
+}
+/**************************************************************************
+ * 		4.7. Sidenav
+ */
+.sidenav .nav {
+  /* Fallback for web browsers that doesn't support RGBa */
+
+  background-color: #ebebeb;
+  /* RGBa with 0.6 opacity */
+
+  background-color: rgba(235, 235, 235, 0.4);
+  /* For IE 5.5 - 7 */
+
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#99ffffff', endColorstr='#99ffffff');
+  /* For IE 8 */
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ebebeb, endColorstr=#66ebebeb)";
+}
+.sidenav .nav  > li {
+  border-bottom: 1px solid #ffffff;
+}
+.sidenav .nav  > li  > a:hover,
+.sidenav .nav  > li  > a:focus {
+  background-color: #ebebeb;
+}
+/**************************************************************************
+ * 		4.8. Carousel
+ */
+.section.carousel .carousel-control,
+.widget.carousel .carousel-control {
+  /* Fallback for web browsers that doesn't support RGBa */
+
+  background-color: #000000 transparent;
+  /* RGBa with 0.6 opacity */
+
+  background-color: rgba(0, 0, 0, 0.4);
+  /* For IE 5.5 - 7 */
+
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#66000000', endColorstr='#66000000');
+  /* For IE 8 */
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000, endColorstr=#66000000)";
+}
+/**************************************************************************
+ * 		4.9. Collapsible Panel
+ */
+.panel,
+.panel-group .panel {
+  background-color: transparent;
+}
+.panel-primary  > .panel-heading {
+  background-color: transparent;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  -o-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.panel-primary  > .panel-heading .panel-title a {
+  color: #d9d9d9;
+  background-color: #161f29;
+}
+.panel-primary  > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #d0d0d0;
+}
+/**************************************************************************
+ * 		4.10. Tab
+ */
+.nav-tabs {
+  border-bottom-color: #1f2c39;
+  background-color: #161f29;
+  border-top: 4px solid #161f29;
+}
+.nav-tabs  > li  > a {
+  color: #d9d9d9;
+}
+.nav-tabs  > li  > a:hover,
+.nav-tabs  > li  > a:focus {
+  border-bottom-color: transparent;
+  background-color: #ffffff;
+  color: #444444;
+}
+.nav-tabs  > li.active  > a,
+.nav-tabs  > li.active  > a:hover,
+.nav-tabs  > li.active  > a:focus {
+  background-color: #ffffff;
+  color: #444444;
+}
+/**************************************************************************
+ * 		4.11. Buttons
+ */
+.btn-default,
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  -o-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.btn-default {
+  color: #444444;
+  border-color: #444444;
+  background-color: transparent;
+}
+.btn-default:hover,
+.btn-default:active,
+.btn-default.active {
+  color: #ebebeb;
+  background-color: #444444;
+  border-color: #444444;
+}
+.btn-warning {
+  color: #161f29;
+  border-color: #e3b90d;
+  background-color: #f1c40f;
+}
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning.active {
+  color: #161f29;
+  background-color: #dab10d;
+  border-color: #e3b90d;
+}
+.btn-primary {
+  border-color: #233140;
+  background-color: #2c3e50;
+  color: #cccccc;
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active {
+  color: #cccccc;
+  background-color: #233140;
+  border-color: #1f2c39;
+}
+/**************************************************************************
+ * 		4.12.  Progress Bar
+ */
+.progress-bar {
+  background-color: #f1c40f;
+  color: #161f29;
+}
+/**************************************************************************
+ * 		4.13. Overlay
+ */
+.overlay.overlay-primary {
+  -webkit-box-shadow: inset 2px 4px 10px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 2px 4px 10px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 2px 4px 10px 5px rgba(0, 0, 0, 0.15);
+  background: -moz-linear-gradient(top, rgba(43, 61, 79, 0.6) 0%, rgba(43, 61, 79, 0.8) 99%, rgba(43, 61, 79, 0.8) 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(43, 61, 79, 0.6)), color-stop(99%, rgba(43, 61, 79, 0.8)), color-stop(100%, rgba(43, 61, 79, 0.8)));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, rgba(43, 61, 79, 0.6) 0%, rgba(43, 61, 79, 0.8) 99%, rgba(43, 61, 79, 0.8) 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, rgba(43, 61, 79, 0.6) 0%, rgba(43, 61, 79, 0.8) 99%, rgba(43, 61, 79, 0.8) 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, rgba(43, 61, 79, 0.6) 0%, rgba(43, 61, 79, 0.8) 99%, rgba(43, 61, 79, 0.8) 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, rgba(43, 61, 79, 0.6) 0%, rgba(43, 61, 79, 0.8) 99%, rgba(43, 61, 79, 0.8) 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99#2c3e50', endColorstr='#cc#2c3e50',GradientType=0 );
+  /* IE6-9 */
+
+}
+/**************************************************************************
+ * 		4.14. Table
+ */
+.table-bordered {
+  border: 1px solid #ebebeb;
+}
+.table-bordered  > thead > tr > th,
+.table-bordered  > tbody > tr > th,
+.table-bordered  > tfoot > tr > th,
+.table-bordered  > thead > tr > td,
+.table-bordered  > tbody > tr > td,
+.table-bordered  > tfoot > tr > td {
+  border: 1px solid #ebebeb;
+}
+.table-bordered  > thead > tr > th,
+.table-bordered  > thead > tr > td {
+  border-bottom-width: 2px;
+}
+.table-hover  > tbody  > tr:hover td,
+.table-hover  > tbody  > tr:hover th {
+  /* Fallback for web browsers that doesn't support RGBa */
+
+  background-color: #ebebeb;
+  /* RGBa with 0.6 opacity */
+
+  background-color: rgba(235, 235, 235, 0.7);
+  /* For IE 5.5 - 7 */
+
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#99ffffff', endColorstr='#99ffffff');
+  /* For IE 8 */
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b3ebebeb, endColorstr=#b3ebebeb)";
+}
+/**************************************************************************
+ * 		4.15. Ad/ banner
+ */
+.ad-wrapper.widget {
+  border-top: 2px solid #d0d0d0;
+}
+/**************************************************************************
+ * 		4.16. Widget calendar
+ */
+.widget_calendar table td {
+  border-top: 1px solid #d0d0d0;
+}
+.widget_calendar table #today {
+  background-color: #f1c40f;
+  color: #161f29;
+}
+/**************************************************************************
+ * 5. Footer
+ */
+.footer-area {
+  color: #9f9f9f;
+}
+.footer-area a {
+  color: #9f9f9f;
+}
+.footer-area a:hover {
+  color: #2c3e50;
+}
+.footer-area .widget {
+  margin-bottom: 20px;
+}
+.footer-area .widget .widget-title {
+  color: #9f9f9f;
+  border-color: rgba(158, 158, 158, 0.3);
+}
+.footer-area .footer-bottom {
+  border-color: rgba(158, 158, 158, 0.3);
+}
+/**************************************************************************
+ * 5. Responsive
+ */
+@media (max-width: 768px) {
+  .header-navbar,
+  body.scrolled .header-navbar {
+    border-right-color: #11181f;
+  }
+  .header-navbar .navbar-brand a,
+  body.scrolled .header-navbar .navbar-brand a {
+    background-color: #0d1318;
+  }
+}
