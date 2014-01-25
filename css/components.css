@@ -512,7 +512,7 @@ ul.entries {
   font-size: 18px;
   line-height: 23px;
 }
-.row > .style-grid .entry-thumbnail {
+.row .ng-scope > .style-grid .entry-thumbnail {
   width: 100%;
   left: 0px;
   right: 0px;
