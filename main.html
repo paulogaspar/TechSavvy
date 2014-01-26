@@ -26,7 +26,7 @@
 	<link rel="stylesheet" href="static/css/jquery.FloatLabel.css">
 </head>
 
-<body ng-app="tsApp" ng-controller="tsController">
+<body ng-app="tsApp" ng-controller="tsController" ng-init="titlesize=40">
 	
 	<div class="container">
 		<div class="section row entries bg-primary section-no-margin-bottom">
@@ -46,9 +46,9 @@
 			        <!--article class="entry style-grid style-hero hero-sm-largest type-post col-sm-12 col-md-8 col-lg-8 col-xl-6 colheight-sm-1 colheight-md-2 colheight-lg-2 colheight-xl-2"-->
 
 			        	<div class="ribbon ribbon-pulled ribbon-small ribbon-highlight">
-			        		<a href="#" ng-if="!isURL(post.message) && post.message.trim().length > 0">[[post.message.substr(0,50)]]</a>
-			        		<a href="#" ng-if="isURL(post.message) && post.name.length > 0">[[post.name.substr(0,50)]]</a>
-			        		<a href="#" ng-if="!post.message && post.name.length>0">[[post.name.substr(0,50)]]</a>
+			        		<a href="#" ng-if="!isURL(post.message) && post.message.trim().length > 0">[[post.message.substr(0,titlesize)]]<i ng-if="post.message.length > titlesize">...</i></a>
+			        		<a href="#" ng-if="isURL(post.message) && post.name.length > 0">[[post.name.substr(0,titlesize)]]<i ng-if="post.name.length > titlesize">...</i></a>
+			        		<a href="#" ng-if="!post.message && post.name.length>0">[[post.name.substr(0,titlesize)]]<i ng-if="post.name.length > titlesize">...</i></a>
 			        		<a href="#" ng-if="isURL(post.message) && !post.name">Techsavvy</a>
 						</div>
 
