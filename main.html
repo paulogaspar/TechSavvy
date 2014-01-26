@@ -48,7 +48,7 @@
 		            <input id="s" type="text" ng-model="searchVal" value="Search">
 		        </div>
 
-		        <div ng-repeat="post in allContent | filter:searchVal | filter:'!'+'Attachment Unavailable' track by $index">
+		        <div ng-repeat="post in allContent | filter:searchVal | filter:'!'+'Attachment Unavailable' | filter:'!#noweb' track by $index">
 
 			        <article ng-class="$index>1?'entry style-grid style-hero type-post col-sm-6 col-md-4 colheight-md-1 colheight-sm-1 colheight-md-1 colheight-lg-1 colheight-md-1 colheight-xl-1 sm-pull-left':'entry style-grid style-hero hero-sm-largest type-post col-sm-12 col-md-8 col-lg-8 col-xl-6 colheight-sm-1 colheight-md-2 colheight-lg-2 colheight-xl-2'">
 
