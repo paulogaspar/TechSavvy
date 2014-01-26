@@ -24,6 +24,7 @@
 .clearfix:after {
   clear: both;
 }
+
 /************************************************************************** 
  *
  * Set general styling for layout - for components styling see components.css
