@@ -1,4 +1,4 @@
-var tsApp = angular.module('tsApp', []);
+var tsApp = angular.module('tsApp', ['angularMoment']);
 
 tsApp.config(function($interpolateProvider){
     $interpolateProvider.startSymbol('[[');
@@ -15,7 +15,7 @@ tsApp.controller('tsController', function($scope, $http, $window, $timeout)
     $scope.isURL = function(url) {
         if(url==undefined)
             return false;
-        
+
         var strRegex = "^((https|http|ftp|rtsp|mms)?://)"
             + "?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?" //ftp?user@
             + "(([0-9]{1,3}\.){3}[0-9]{1,3}" // IP???URL- 199.194.52.184
