@@ -46,7 +46,8 @@
 			        <!--article class="entry style-grid style-hero hero-sm-largest type-post col-sm-12 col-md-8 col-lg-8 col-xl-6 colheight-sm-1 colheight-md-2 colheight-lg-2 colheight-xl-2"-->
 
 			        	<div class="ribbon ribbon-pulled ribbon-small ribbon-highlight">
-							<a href="#">[[post.message.substr(0,50)]]</a>
+							<a href="#" ng-if="post.message.trim().length > 0">[[post.message.substr(0,50)]]</a>
+							<a href="#" ng-if="post.message.trim().length === 0">[[post.name.substr(0,50)]]</a>
 						</div>
 
 
@@ -55,6 +56,7 @@
 							<div class="entry-meta">
 								<blockquote>
 									[[post.message]]<br/>
+									[[isURL(post.message)]]
 								</blockquote>
 
 								<span class="entry-date"><time datetime="[[post.created_time]]"><script>moment("", "YYYYMMDD").fromNow();</script></time></span>

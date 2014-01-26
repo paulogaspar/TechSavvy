@@ -330,7 +330,7 @@ ul.entries {
 .ribbon.ribbon-pulled  > span,
 .ribbon.ribbon-pulled  > a,
 .ribbon.ribbon-pulled  > .ribbon-inner {
-  width: auto;
+  width: inherit;
   float: left;
 }
 .ribbon.ribbon-small {
