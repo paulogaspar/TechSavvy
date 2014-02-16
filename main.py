@@ -2,6 +2,7 @@ from bottle import route, run, template, static_file, request
 import facebook
 import json
 from datetime import datetime
+import feedparser
 import PyRSS2Gen
 import os
 import urllib2
@@ -37,8 +38,25 @@ def content_json():
 
 	# Get group feed
 	ts_group_feed = get_feed_dict()
+	ts_group_feed = ts_group_feed["data"]
+	#http://planet.techsavvy.ws/atom.php
+	planet = feedparser.parse('http://planet.techsavvy.ws/atom.php')
+	for i in xrange(len(planet.entries)):
+		name = planet.entries[i].title[:40]
+		tlen = len(planet.entries[i].title)
+		if tlen > 110:
+			message = planet.entries[i].title[:110]+'...'
+		else:
+			end = (110 - tlen) + 5
+			message = planet.entries[i].title+ ' ' +planet.entries[i].content[0].value[5:end]+'...'
+		link = planet.entries[i].link
+		author = planet.entries[i].author
+		link = planet.entries[i].link
+		time = planet.entries[i].updated
+		ts_group_feed.append({'from':{'name': author}, 'caption': name, 'message': message, 'created_time': time, 'name': name, 'link': link})
 
-	return json.dumps(ts_group_feed["data"])	
+
+	return json.dumps(ts_group_feed)	
 
 
 # Get techsavvy feed content in json
